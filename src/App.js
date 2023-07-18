@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import WeatherForecast from './WeatherForecast';
+import CurrencyConverter from './CurrencyConverter';
+import './App.css'
 
-function App() {
+const App = () => {
+  const [selectedApp, setSelectedApp] = useState(null);
+
+  const handleButtonClick = (app) => {
+    setSelectedApp(app);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {selectedApp === null ? (
+        <>
+          <h1>WeaCurra</h1>
+          <p>Seamlessly Convert Currencies and Forecast the Weather at Your Fingertips</p>
+          <button onClick={() => handleButtonClick('weather')} class="weather">Weather Forecast</button>
+          <button onClick={() => handleButtonClick('currency')} class="currency">Currency Converter</button>
+        </>
+      ) : (
+        <>
+          {selectedApp === 'weather' && <WeatherForecast />}
+          {selectedApp === 'currency' && <CurrencyConverter />}
+        </>
+      )}
     </div>
   );
-}
+};
 
 export default App;

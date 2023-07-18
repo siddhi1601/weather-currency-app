@@ -1,0 +1,19 @@
+.currencybody{
+    background-color: #161616;
+    color: #ddd;
+    padding: 50px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.currencyheader{
+    color: #eef;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.conversion-text{
+    font-size: 25px;
+}
