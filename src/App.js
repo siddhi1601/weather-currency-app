@@ -14,7 +14,7 @@ const App = () => {
     <div className="app">
       {selectedApp === null ? (
         <>
-          <h1>WeaCurra</h1>
+          <h1>Weather and Currency App</h1>
           <p>Seamlessly Convert Currencies and Forecast the Weather at Your Fingertips</p>
           <button onClick={() => handleButtonClick('weather')} class="weather">Weather Forecast</button>
           <button onClick={() => handleButtonClick('currency')} class="currency">Currency Converter</button>
