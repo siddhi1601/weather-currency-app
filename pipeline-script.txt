@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    
+    tools {
+        nodejs "node"
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM',
+                          branches: [[name: '*/main']],
+                          extensions: [],
+                          userRemoteConfigs: [[credentialsId: '0bb7f4f7-759f-40ea-9130-1284dc150603', url: 'https://github.com/siddhi1601/weather-currency-app.git']]])
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('Start Application') {
+            steps {
+                sh 'npm start'
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+1. Create ec2 instance (t3.medium)
+2. Install jenkins on ec2
+	- sudo apt update
+	- sudo apt install openjdk-8-jdk -y
+	- follow installation steps on pkg.jenkins.io
+	- add security groups (8080-jenkins; 3000-deployment)
+	- open jenkins in new tab
+3. Install needed plugins (nodejs and github integration)
+4. Create new job (pipepline project)
+5. Generate pipeline script
+6. Build application
+7. Open application in new tab on 3000 port

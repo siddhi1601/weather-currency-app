@@ -1,0 +1,26 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Build') {
+      steps {
+        sh 'npm install'
+        sh 'npm run build'
+      }
+    }
+
+    stage('Test') {
+      steps {
+        sh 'npm test'
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        withAWS(credentials: 'AKIAST2UWAYITCVL3P7P') {
+          sh 'eb deploy'
+        }
+      }
+    }
+  }
+}
